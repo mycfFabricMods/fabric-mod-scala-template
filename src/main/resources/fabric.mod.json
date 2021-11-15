@@ -2,36 +2,43 @@
   "schemaVersion": 1,
   "id": "modid",
   "version": "${version}",
-
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Name Here",
+  "description": "Mod Description",
   "authors": [
-    "Me!"
+    "Author"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://example.com/",
+    "issues": "https://example.com/",
+    "sources": "https://example.com/"
   },
-
-  "license": "CC0-1.0",
+  "license": "License",
   "icon": "assets/modid/icon.png",
-
   "environment": "*",
+  "languageAdapters": {
+    "custom": "com.username.modid.language_adapter.CustomLanguageAdapter"
+  },
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      {
+        "adapter": "custom",
+        "value": "com.username.modid.MainFile"
+      }
+    ],
+    "client": [
+      {
+        "adapter": "custom",
+        "value": "com.username.modid.MainFileClient"
+      }
     ]
   },
   "mixins": [
     "modid.mixins.json"
   ],
-
   "depends": {
-    "fabricloader": ">=0.7.4",
+    "fabricloader": ">=0.11.7",
     "fabric": "*",
-    "minecraft": "1.16.x"
-  },
-  "suggests": {
-    "another-mod": "*"
+    "minecraft": "1.17.x",
+    "java": ">=16"
   }
 }
