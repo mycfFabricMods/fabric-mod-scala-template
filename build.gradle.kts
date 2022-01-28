@@ -1,13 +1,13 @@
 plugins {
-    id("scala")
-    id("fabric-loom") version "0.9-SNAPSHOT"
+    scala
+    id("fabric-loom") version "0.10-SNAPSHOT"
 }
 base {
     val archivesBaseName: String by project
     archivesName.set(archivesBaseName)
 }
 
-val javaVersion = JavaVersion.VERSION_16.toString()
+val javaVersion = JavaVersion.VERSION_17.toString()
 val modVersion: String by project
 val mavenGroup: String by project
 val minecraftVersion: String by project
@@ -33,8 +33,11 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:$fabricVersion")
 
     // Scala
-    implementation("org.scala-lang:scala-library:2.13.6")
-    include("org.scala-lang:scala-library:2.13.6")
+    implementation("org.scala-lang:scala3-library_3:3.1.1")
+    include("org.scala-lang:scala3-library_3:3.1.1")
+
+    implementation("commons-collections:commons-collections:3.2.2")
+    include("commons-collections:commons-collections:3.2.2")
 }
 
 tasks {
@@ -55,8 +58,8 @@ tasks {
     }
     java {
         toolchain { languageVersion.set(JavaLanguageVersion.of(javaVersion)) }
-        sourceCompatibility = JavaVersion.VERSION_16
-        targetCompatibility = JavaVersion.VERSION_16
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
         withSourcesJar()
     }
 }

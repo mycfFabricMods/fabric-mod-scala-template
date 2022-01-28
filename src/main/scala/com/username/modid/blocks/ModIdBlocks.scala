@@ -21,7 +21,7 @@ object ModIdBlocks {
   val COOL_BLOCK: Block = addBlock("coolblock", new Block(AbstractBlock.Settings.copy(Blocks.STONE)))
 
 
-  private def addBlock(name: String, block: Block): Block = {
+  private def addBlock[B <: Block](name: String, block: B): B = {
     val correctedName = name.replace(" ", "").toLowerCase.trim
     BlockRegistry.put(correctedName, block)
     BlockItemsRegistry.put(correctedName + "_item", new BlockItem(block, new Item.Settings().maxCount(64).group(ItemGroup.MISC)))

@@ -14,7 +14,7 @@ object ModIdItems {
    */
   val COOL_ITEM: Item = addItem("coolitem", new Item(new Item.Settings().maxCount(64).group(ItemGroup.MISC)))
 
-  private def addItem(name: String, item: Item): Item = {
+  private def addItem[I <: Item](name: String, item: I): I = {
     val correctedName = name.replace(" ", "").toLowerCase.trim
     ItemRegistry.put(correctedName, item)
     item

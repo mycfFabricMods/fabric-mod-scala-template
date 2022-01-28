@@ -11,7 +11,7 @@ import net.fabricmc.api.ModInitializer
  * -Dmixin.debug=true (turns on all debugging features)
  */
 object MainFile extends ModInitializer {
-  val MOD_ID = "modid"
+  given MOD_ID: String = "modid"
 
   override def onInitialize(): Unit = {
     ModIdBlocks.registerBlocks()
